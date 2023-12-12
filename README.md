@@ -1,21 +1,19 @@
-# CS411group-30
+# CS411-Bookify
 
-**Derinell Rojas**
+## About 
+This is a group project that was made for my CS411: Software Engineering Class. Bookify is a web application 
+that generates a Spotify playlist inspired by a user's chosen book.
 
-**Nathan Van Zandt**
+## Technologies 
+- React
+- Flask 
+- MySQL 
+- Spotify Web API 
+- OpenAI API
+
+## Video 
+https://github.com/nvanzandt/CS411-Bookify/assets/135445498/24097211-6717-4f16-b82c-f8f2674cec2e
 
 
-**Naveen Vaidyamath**
 
 
-**Aaryan Bhutani**
-
-Demo Video Link: https://youtu.be/ILY2_nxc-iQ
-
-Bookify is an innovative web application designed to transform the reading experience by providing users with personalized playlists based on their book or movie selections. 
-The application allows users to input the title and author of a book to generate a Spotify playlist that aligns with the vibe, themes, and plot
-of their chosen content. This unique feature is powered by the ChatGPT API, enabling the selection of songs that perfectly resonate with the user's input. Seamless integration
-with Spotify is achieved through the Spotify API OAuth, ensuring that the customized playlists are automatically uploaded and saved to the user's Spotify account. Beyond just 
-creating playlists, Bookify is dedicated to building a community of passionate readers and music enthusiasts. It maintains a database for users to rate and comment on the playlists, 
-fostering user engagement and providing insights for ongoing enhancements to the service. The development and functionality of Bookify are meticulously guided to ensure an immersive and 
-distinct experience for every user, making it a standout application for those looking to combine their love for reading and music.
