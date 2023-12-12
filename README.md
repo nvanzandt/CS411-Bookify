@@ -2,7 +2,7 @@
 
 ## About 
 Bookify is a web application that generates a Spotify playlist inspired by a user's chosen book. This project was made for my 
-CS411: Software Engineering class as a team of 4 people. The assignment required that we create an application that uses a database, 
+CS411: Software Engineering class as a team of 4 people. The assignment required that we create an application which uses a database, 
 2 APIs, third-party authentication, and a decoupled architecture. 
 
 ## Technologies 
