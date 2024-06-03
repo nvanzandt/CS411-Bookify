@@ -8,7 +8,7 @@ import Error from './components/error-page/Error';
 function App() {
   return (
     <div className='app-div'>
-     <BrowserRouter>
+     <BrowserRouter basename=''>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/book" element={<Input />} />
