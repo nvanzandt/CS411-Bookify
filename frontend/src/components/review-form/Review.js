@@ -1,4 +1,5 @@
 import './Review.css'
+import API_URL from '../../config';
 
 function Review({onClose}) {
 
@@ -28,7 +29,7 @@ function Review({onClose}) {
           onClose();
          
     // Submit data to backend
-    fetch('http://localhost:5000/save-feedback', {
+    fetch(`${API_URL}/save-feedback`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -2,6 +2,7 @@ import './Input.css';
 import Header from '../header/Header'
 import Footer from '../footer/Footer';
 import { useState } from 'react';
+import API_URL from '../../config';
 
 function Input() {
 
@@ -26,7 +27,7 @@ function Input() {
     }
 
     // Send the data to the backend 
-    fetch('http://localhost:5000/create-playlist', { 
+    fetch(`${API_URL}/create-playlist`, { 
       method: 'POST', 
       headers: { 
         'Content-Type': 'application/json' 

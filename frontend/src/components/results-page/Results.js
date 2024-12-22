@@ -3,6 +3,7 @@ import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import Song from '../song/Song';
 import { useState, useEffect} from 'react';
+import API_URL from '../../config';
 
 
 function Results() {
@@ -23,7 +24,7 @@ function Results() {
 
   const showPlaylist = () => {
     // Make request to Flask backend's /login endpoint
-    fetch('http://localhost:5000/playlists', { 
+    fetch(`${API_URL}/playlists`, { 
       credentials: 'include'
     })
       .then(response => {

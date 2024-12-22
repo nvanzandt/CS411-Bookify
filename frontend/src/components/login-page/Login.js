@@ -1,11 +1,12 @@
 import './Login.css';
 import bookifyIcon from '../../images/bookify-icon.png';
+import API_URL from '../../config';
 
 function Login() {
 
   const handleLogin = () => {
     // Make request to Flask backend's /login endpoint
-    fetch('http://localhost:5000/login')
+    fetch(`${API_URL}/login`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
