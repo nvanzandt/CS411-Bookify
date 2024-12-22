@@ -50,6 +50,7 @@ def index():
 
 # Login endpoint: redirect to spotify login
 @app.route('/login')
+@cross_origin(supports_credentials=True)
 def login(): 
     # User permissions
     scope = 'playlist-modify-public playlist-read-private'
@@ -72,12 +73,13 @@ Callback for after the user logins.
 Two scenarios: unsuccessful and successful login
 """
 @app.route('/callback') 
+@cross_origin(supports_credentials=True)
 def callback(): 
     # Unsuccessful
     # If there is an error in the request, return error message
     if 'error' in request.args:
         print("Error:", request.args['error'])
-        return redirect('http://localhost:3000')
+        return redirect(os.getenv('FRONTEND_URL', 'http://localhost:3000'))
     # Successful 
     # If code is in request, send a request to token url in order to store token info in a session
     if 'code' in request.args: 
