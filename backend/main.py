@@ -12,7 +12,9 @@ from flask_cors import CORS, cross_origin
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True, origins=[
+    os.getenv('FRONTEND_URL', 'http://localhost:3000'),  # Replace the hardcoded URLs
+])
 
 # Load environment variables
 load_dotenv()
@@ -25,7 +27,7 @@ CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 
 # Spotify endpoints
-REDIRECT_URI = 'http://localhost:5000/callback'
+REDIRECT_URI = os.getenv('REDIRECT_URI', 'http://localhost:5000/callback')
 AUTH_URL = 'https://accounts.spotify.com/authorize' 
 TOKEN_URL = 'https://accounts.spotify.com/api/token'
 API_BASE_URL = 'https://api.spotify.com/v1/'
@@ -34,10 +36,10 @@ new_playlist_id = ''
 
 # Stores configuration settings related to database connection
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'Nellie724!',
-    'database': 'Bookify'
+    'host': os.getenv('DB_HOST', 'localhost'),
+    'user': os.getenv('DB_USER', 'root'),
+    'password': os.getenv('DB_PASSWORD'),
+    'database': os.getenv('DB_NAME', 'Bookify')
 }
 
 
@@ -99,7 +101,7 @@ def callback():
 
         # Redirect to endpoint
         print("Session data before redirection:", session)
-        return redirect('http://localhost:3000/book')
+        return redirect(os.getenv('FRONTEND_URL', 'http://localhost:3000') + '/book')
 
 # Endpoint to get user's playlists
 @app.route('/playlists') 
