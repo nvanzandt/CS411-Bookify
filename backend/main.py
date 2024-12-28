@@ -13,7 +13,8 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, origins=[
-    os.getenv('FRONTEND_URL', 'http://localhost:3000'),  # Replace the hardcoded URLs
+    os.getenv('FRONTEND_URL', 'http://localhost:3000'),
+    'https://cs-411-bookify.vercel.app'
 ])
 
 # Load environment variables
