@@ -35,15 +35,7 @@ function Input() {
       body: JSON.stringify(formData),
       credentials: 'include'
     }) 
-      .then(response => {
-        if (!response.ok) {
-          return response.text().then(text => {
-            console.error('Server response:', text);
-            throw new Error(`HTTP error! status: ${response.status}`);
-          });
-        }
-        return response.json();
-      }) 
+      .then(response => response.json()) 
       .then(data => { 
         console.log('Success:', data); 
         // Redirect the user to the results page 
@@ -51,6 +43,9 @@ function Input() {
       }) 
       .catch((error) => { 
         console.error('Error:', error); 
+      })
+      .finally(() => {
+        // Hide the loading div
         setIsLoading(false);
       });
   }
