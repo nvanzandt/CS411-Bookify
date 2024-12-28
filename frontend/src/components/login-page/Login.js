@@ -17,7 +17,7 @@ function Login() {
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            window.location.href = data.redirect;
+            window.location.replace(data.redirect);
           } else {
             console.error('Auth error:', data.error);
             // Handle error appropriately
