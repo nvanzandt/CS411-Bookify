@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <div className='header-div'>
-      <a href='/' className='text-white no-underline'>
+      <a href='/book' className='logo-link'>
         <div className='header-left'>
           <img className='header-bookify-icon' src={bookifyIcon}/>
           <p className='header-app-name'>Bookify</p>

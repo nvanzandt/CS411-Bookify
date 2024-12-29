@@ -14,6 +14,10 @@
   justify-content: space-between;
 }
 
+.logo-link {
+  text-decoration: none;
+}
+
 .header-bookify-icon {
   width: 50px;
   height: 50px;
@@ -25,6 +29,8 @@
   margin-bottom: 0px;
   font-size: 38px;
   font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
 
 .header-right { 
