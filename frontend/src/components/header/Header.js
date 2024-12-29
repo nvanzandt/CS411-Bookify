@@ -19,30 +19,32 @@ function Header() {
 
   return (
     <div className='header-div'>
-      <div className='header-left'>
-        <img className='header-bookify-icon' src={bookifyIcon}/>
-        <p className='header-app-name'>Bookify</p>
-      </div>
+      <a href='/'>
+        <div className='header-left'>
+          <img className='header-bookify-icon' src={bookifyIcon}/>
+          <p className='header-app-name'>Bookify</p>
+        </div>
+      </a>
       <Nav />
       <div className='header-right' >
-      <div className='review-link' onClick={openFormModal}>
-       Write a review
-      </div>
+        <div className='review-link' onClick={openFormModal}>
+        Write a review
+        </div>
 
-        {isFormModalOpen && (
-          <div className="form-modal">
-            <div className="form-modal-content">
-              {/* Close button for the form modal */}
-              <span className="close" onClick={closeFormModal}>&times;</span>
+          {isFormModalOpen && (
+            <div className="form-modal">
+              <div className="form-modal-content">
+                {/* Close button for the form modal */}
+                <span className="close" onClick={closeFormModal}>&times;</span>
 
-              {/* Render the Form component */}
+                {/* Render the Form component */}
 
-                <Review onClose={closeFormModal} />
+                  <Review onClose={closeFormModal} />
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <NavLink className='log-out-link' to='/'>Log out</NavLink>
+          <NavLink className='log-out-link' to='/'>Log out</NavLink>
       </div>
     </div>
   )

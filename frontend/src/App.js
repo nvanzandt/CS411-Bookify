@@ -11,7 +11,6 @@ function App() {
      <BrowserRouter basename=''>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/callback" element={<Login />} />
         <Route path="/book" element={<Input />} />
         <Route path="/playlist" element={<Results />} />
         <Route path="*" element={<Error />} />
