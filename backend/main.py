@@ -17,6 +17,17 @@ CORS(app, supports_credentials=True, origins=[
     'https://cs-411-bookify.vercel.app'
 ])
 
+app.config.update(
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SAMESITE='None',
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_DOMAIN='nvanzandt.pythonanywhere.com'
+)
+
+# Add prints before load_dotenv
+print("=== Starting application ===")
+print("Current working directory:", os.getcwd())
+
 # Load environment variables
 load_dotenv()
 
@@ -77,23 +88,23 @@ Two scenarios: unsuccessful and successful login
 @cross_origin(supports_credentials=True)
 def callback(): 
     # Unsuccessful
-    # If there is an error in the request, return error message
     if 'error' in request.args:
         print("Error:", request.args['error'])
         return redirect(os.getenv('FRONTEND_URL', 'http://localhost:3000'))
+    
     # Successful 
     # If code is in request, send a request to token url in order to store token info in a session
-    if 'code' in request.args: 
-        req_body = { 
-            'code': request.args['code'], 
-            'grant_type': 'authorization_code', 
-            'redirect_uri': REDIRECT_URI, 
-            'client_id': CLIENT_ID, 
+    if 'code' in request.args:
+        req_body = {
+            'code': request.args['code'],
+            'grant_type': 'authorization_code',
+            'redirect_uri': REDIRECT_URI,
+            'client_id': CLIENT_ID,
             'client_secret': CLIENT_SECRET
         }
-
+        
         response = requests.post(TOKEN_URL, data=req_body)
-        token_info = response.json() 
+        token_info = response.json()
 
         # Used to make requests to spotify api
         session['access_token'] = token_info['access_token']
@@ -102,8 +113,6 @@ def callback():
         # When the token expires
         session['expires_at'] = datetime.now().timestamp() + token_info['expires_in']
 
-        # Redirect to endpoint
-        print("Session data before redirection:", session)
         return redirect(os.getenv('FRONTEND_URL', 'http://localhost:3000') + '/book')
 
 # Endpoint to get user's playlists
@@ -193,8 +202,7 @@ def create_playlist():
         'public': True
     }
 
-    print(completion_message)
-    print('Creating playlist...')
+    print('creating playlist...')
 
     # Create a list of songs to add to the playlist
     list_of_songs = []
