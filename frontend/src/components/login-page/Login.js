@@ -4,30 +4,6 @@ import API_URL from '../../config';
 import { useEffect } from 'react';
 
 function Login() {
-  useEffect(() => {
-    // Check if we're returning from Spotify auth
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-    
-    if (code) {
-      // Call your backend callback endpoint
-      fetch(`${API_URL}/callback?code=${code}`, {
-        credentials: 'include'  // Important! This ensures cookies are sent
-      })
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            window.location.replace(data.redirect);
-          } else {
-            console.error('Auth error:', data.error);
-            // Handle error appropriately
-          }
-        })
-        .catch(error => {
-          console.error('Error during callback:', error);
-        });
-    }
-  }, []);
 
   const handleLogin = () => {
     // Make request to Flask backend's /login endpoint

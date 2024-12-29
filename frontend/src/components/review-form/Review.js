@@ -34,7 +34,6 @@ function Review({onClose}) {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include',
         body: JSON.stringify(feedbackData),
       })
         .then((response) => response.json())
